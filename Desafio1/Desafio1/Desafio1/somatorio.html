@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Somatório somente com HTML</title>
+    <script>
+        function sum() {
+            var label1 = parseInt(document.getElementById("label1").value,10);
+            var label2 = parseInt(document.getElementById("label2").value,10);
+            var sum = label1 + label2;
+            var result = document.getElementById("result");
+            result.innerHTML= "Resultado " + sum;
+        }
+    </script>
+</head>
+<body>
+    <h1>Somatório somente com HTML</h1>
+    <span  style="color:blue">Valor 1: <input id="label1" type="number" /></span>
+    <span style="color:green">Valor 2: <input id="label2" type="number" /></span>
+    <button onclick="sum()">Somar!</button>
+    <br />
+    <span id="result" style="color:hotpink"></span>
+</body>
+
+
+</html>
+
+

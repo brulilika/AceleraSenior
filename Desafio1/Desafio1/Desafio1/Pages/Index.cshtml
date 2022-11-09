@@ -1,0 +1,28 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    int value1 = 1;
+    int value2 = 2;
+    int sum = value1 + value2;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Somatório do Desafio 1</h1>
+    <label1>@value1</label1>
+    <label>+</label>
+    <label2>@value2</label2>
+    <label>= @sum</label>
+</div>
+
+<style>
+    label{
+        color: black
+    }
+    label1{
+        color: blue
+    }
+    label2 {
+        color: green
+    }
+</style>
