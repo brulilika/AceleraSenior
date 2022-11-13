@@ -1,0 +1,25 @@
+﻿<Properties StartupConfiguration="{8894CFF7-F4E7-4D4F-BA3F-6E1CD409D5B6}|https">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Desafio1/Data/CatRepository.cs">
+    <Files>
+      <File FileName="Desafio1/Controllers/AnimalController.cs" Line="55" Column="46" />
+      <File FileName="Desafio1/Data/CatRepository.cs" Line="60" Column="18" />
+      <File FileName="Desafio1/Data/DogRepository.cs" Line="56" Column="43" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Desafio1" expanded="True">
+            <Node name="Desafio1" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Desafio1 PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+</Properties>
