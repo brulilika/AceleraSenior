@@ -51,6 +51,7 @@ namespace Desafio1.Data
                         cat.Name = updateCat.Name;
                         cat.Age = updateCat.Age;
                         cat.TypeMiaw = updateCat.TypeMiaw;
+                        cat.Race = updateCat.Race;
                         ctx.Cats.Update(cat);
                         ctx.SaveChanges();
                         return "Atualizado com sucesso!";

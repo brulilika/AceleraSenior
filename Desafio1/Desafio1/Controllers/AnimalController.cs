@@ -12,65 +12,34 @@ namespace Desafio1.Controllers
     [Route("api/[controller]")]
     public class AnimalController : Controller
     {
-        [HttpGet("/dogs")]
-        public IEnumerable<Dog> GetDogs()
+        [HttpGet("/animal")]
+        public object GetAnimal(AnimalType animalType)
         {
-            return new DogRepository().GetAllDogs();
+            return new AnimalRepository().GetAllAnimal(animalType);
         }
 
-        [HttpGet("/cats")]
-        public IEnumerable<Cat> GetCats()
+        [HttpGet("/animal/{id}")]
+        public object GetAnimalById(int id,AnimalType animalType)
         {
-            return new CatRepository().GetAllCats();
+            return new AnimalRepository().GetAnimalById(id,animalType);
         }
 
-        [HttpGet("/dog/{id}")]
-        public Dog GetDog(int id)
+        [HttpPost("/animal/{animalType}")]
+        public string Post(AnimalType animalType, [FromBody] Object newAnimal)
         {
-            return new DogRepository().GetDogById(id);
+            return new AnimalRepository().InsertAnimal(newAnimal, animalType);
         }
 
-        [HttpGet("/cat/{id}")]
-        public Cat GetCat(int id)
+        [HttpPut("/animal/{animalType}")]
+        public string Put(AnimalType animalType, [FromBody] Object newAnimal)
         {
-            return new CatRepository().GetCatById(id);
+            return new AnimalRepository().UpdateAnimal(newAnimal, animalType);
         }
 
-        [HttpPost("/dog")]
-        public string Post([FromBody]Dog newDog)
+        [HttpDelete("/animal/{id}")]
+        public string DeleterAnimal(int id, AnimalType animalType)
         {
-            return new DogRepository().InsertDog(newDog);
-        }
-
-
-        [HttpPost("/cat")]
-        public string Post([FromBody] Cat newCat)
-        {
-            return new CatRepository().InsertCat(newCat);
-        }
-
-        [HttpPut("/dog")]
-        public string Put([FromBody]Dog updateDog)
-        {
-            return new DogRepository().UpdateDog(updateDog);
-        }
-
-        [HttpPut("/cat")]
-        public string Put([FromBody] Cat updateCat)
-        {
-            return new CatRepository().UpdateCat(updateCat);
-        }
-
-        [HttpDelete("/dog/{id}")]
-        public string Delete(int id)
-        {
-            return new DogRepository().DeleteDog(id);
-        }
-
-        [HttpDelete("/cat/{id}")]
-        public string DeleteCat(int id)
-        {
-            return new CatRepository().DeleteCat(id);
+            return new AnimalRepository().DeleteAnimal(id, animalType);
         }
     }
 }
