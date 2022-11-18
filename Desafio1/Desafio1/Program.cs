@@ -10,10 +10,23 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//var connectionString = builder.Configuration.GetConnectionString("AnimalConnection");
 builder.Services.AddDbContext<AnimalContext>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("MyPolicy",
+        builder => builder.WithOrigins("https://localhost:4200", "http://127.0.0.1:5173")
+    .AllowAnyHeader()
+    .AllowAnyMethod());
+});
+
 var app = builder.Build();
+
+app.UseCors(builder => builder
+.AllowAnyOrigin()
+.AllowAnyMethod()
+.AllowAnyHeader()
+);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

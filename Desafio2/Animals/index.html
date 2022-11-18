@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+   
+    <body>
+        <head>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+            <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/0.7.13/vue-router.min.js"> </script>
+        </head>
+    
+        <div class="container">
+            <header>
+                <div class="branding">
+                    <h3>Lista de Animais</h3>
+                </div>
+            </header>
+    
+            <main id="app">
+                <router-view></router-view>
+            </main>
+    
+        </div>
+
+        <template id="animaisLista">
+           <div class="action">
+
+            <a class="btn btn-defaut" v-link="{path:'/adicionarAnimal'}">
+                    <span>Novo animal</span>
+            </a>
+
+           </div>
+           
+            <div class="Action">
+                <div class="filter row">
+                    <div class="form-group col-sm-3">
+                        <input v-model="searchKey" class="form-control" placeholder="Procurar" id="search-element"> 
+                    </div>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Idade</th>
+                            <th>Raca</th>
+                            <th>Tipo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for=" animal in animais | filterBy searchKey in 'Nome'">
+                            <td>{{animal.name}}</td>
+                            <td>{{animal.age}}</td>
+                            <td>{{animal.race}}</td>
+                            <td>{{animal.type}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </template>
+
+        <template id="adicionarAnimal">
+            <p>Novo animal</p>
+
+            <form @submit.prevent="AdicionarAnimal">
+              <div class="form-group">
+                  <label for="NumeroCartao">Tipo Animal</label><br>
+                  <input class="form-control" id="radioDog" type="radio" v-model="NumeroCartao" required>
+                  <input class="form-control" id="radioDog" type="radio" v-model="NumeroCartao" required>
+              </div>
+              <div class="form-group">
+                  <label for="NumeroCartao">Nome</label><br>
+                  <input class="form-control" id="NumeroCartao" type="text" v-model="NumeroCartao" required>
+              </div>
+
+              <div class="form-group">
+                  <label for="NumeroPedido">Idade</label><br>
+                  <input class="form-control" id="NumeroPedido" type="text" v-model="NumeroPedido" required>
+              </div>
+
+              <div class="form-group">
+                  <label for="Valor">Raca</label><br>
+                  <input class="form-control" id="Valor" type="text" v-model="Valor" required>
+              </div>
+
+              <div class="form-group">
+                <label for="Valor">Raca</label><br>
+                <input class="form-control" id="Valor" type="text" v-model="Valor" required>
+              </div>
+
+              <button type="submit" class="btn btn-primary"  >Cadastrar Fatura</button>
+
+            </form>
+           
+        
+        
+        </template>
+
+
+    
+
+        <script>
+            var animais = [];
+            var ListarAnimais = Vue.extend({
+                template: '#animaisLista',
+                data: function(){
+                    axios.get('https://localhost:7236/dogs').then( res =>{
+                        this.animais = (res.data)
+                        console.log(res.data)
+                });
+                    return{animais: animais, searchKey:''}
+                }
+            });
+
+            var AdicionarAnimal= Vue.extend({
+                template: "#adicionarAnimal",
+                data:function(){
+                   return{
+                    NumeroCartao: '',
+                    NumeroPedido:'',
+                    Valor:''
+
+                   }
+
+                },
+                methods:{
+                    criarFatura(){
+                        axios.post('https://localhost:44358/api/Pagamentos',{
+                            NumeroCartao: this.NumeroCartao,
+                            NumeroPedido: this.NumeroPedido,
+                            Valor: this.Valor   
+
+                        })
+
+                        router.go('/')
+                    }
+
+                }
+
+
+            });
+
+
+
+            var router = new VueRouter();
+            router.map({
+                '/' :{component: ListarAnimais},
+                '/adicionarAnimal':{component: AdicionarAnimal}
+
+            })
+            .start(Vue.extend({}),'#app')
+        </script>
+    </body>
+</html>
