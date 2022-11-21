@@ -1,20 +1,11 @@
 ﻿<Properties StartupConfiguration="{8894CFF7-F4E7-4D4F-BA3F-6E1CD409D5B6}|https">
+  <MonoDevelop.Ide.ItemProperties.Desafio1 PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Desafio1/Data/AnimalRepository.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Desafio1/Data/CatRepository.cs">
     <Files>
-      <File FileName="Desafio1/Controllers/AnimalController.cs" Line="30" Column="23" />
-      <File FileName="Desafio1/Data/CatRepository.cs" Line="53" Column="40" />
-      <File FileName="Desafio1/Data/DogRepository.cs" Line="18" Column="10" />
-      <File FileName="Desafio1/Program.cs" Line="20" Column="24" />
-      <File FileName="Desafio1/Models/AnimaisReturn.cs" Line="8" Column="20" />
-      <File FileName="Desafio1/Models/Animal.cs" Line="12" Column="41" />
-      <File FileName="Desafio1/Models/AnimalType.cs" Line="7" Column="6" />
-      <File FileName="Desafio1/Data/AnimalRepository.cs" Line="16" Column="14" />
+      <File FileName="Desafio1/Controllers/AnimalController.cs" Line="26" Column="1" />
+      <File FileName="Desafio1/Data/AnimalRepository.cs" Line="42" Column="61" />
+      <File FileName="Desafio1/Data/CatRepository.cs" Line="53" Column="23" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -22,9 +13,7 @@
           <Node name="Desafio1" expanded="True">
             <Node name="Desafio1" expanded="True">
               <Node name="Controllers" expanded="True" />
-              <Node name="Data" expanded="True">
-                <Node name="AnimalRepository.cs" selected="True" />
-              </Node>
+              <Node name="Data" expanded="True" />
               <Node name="Models" expanded="True" />
             </Node>
           </Node>
@@ -32,5 +21,9 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.Desafio1 PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

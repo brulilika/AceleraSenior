@@ -12,7 +12,7 @@
         <div class="container">
             <header>
                 <div class="branding">
-                    <h3>Lista de Animais</h3>
+                    <h3>Lista Animais</h3>
                 </div>
             </header>
     
@@ -22,13 +22,11 @@
     
         </div>
 
-        <template id="animaisLista">
+        <template id="listaAnimal">
            <div class="action">
-
-            <a class="btn btn-defaut" v-link="{path:'/adicionarAnimal'}">
-                    <span>Novo animal</span>
-            </a>
-
+                <a class="btn btn-defaut" v-link="{path:'/adicionarAnimal'}">
+                    <span>Novo Animal</span>
+                </a>
            </div>
            
             <div class="Action">
@@ -36,22 +34,38 @@
                     <div class="form-group col-sm-3">
                         <input v-model="searchKey" class="form-control" placeholder="Procurar" id="search-element"> 
                     </div>
+                    <div class="form-group col-sm-3">
+                        <input type="radio" id="one" value="One" checked v-model="picked">
+                        <label for="one">Gato</label>
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <input type="radio" id="two" value="Two" v-model="picked">
+                        <label for="two">Cachorro</label>
+                    </div>
                 </div>
                 <table class="table table-striped">
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Nome</th>
                             <th>Idade</th>
                             <th>Raca</th>
-                            <th>Tipo</th>
+                            <th>Editar</th>
+                            <th>Deletar</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr v-for=" animal in animais | filterBy searchKey in 'Nome'">
-                            <td>{{animal.name}}</td>
-                            <td>{{animal.age}}</td>
-                            <td>{{animal.race}}</td>
-                            <td>{{animal.type}}</td>
+                            <td>{{animal.Id}}</td>
+                            <td>{{animal.Nome}}</td>
+                            <td>{{animal.Age}}</td>
+                            <td>{{animal.Race}}</td>
+                            <td>
+                                <button type="button" class="btn btn-outline-info" v-link="{name: 'editarAnimal', params:{animalId: animal.Id}}">Editar</button>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-outline-danger" v-link="{name: 'excluirAnimal', params:{fatura_id: animal.Id}}">Excluir</button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -59,95 +73,150 @@
         </template>
 
         <template id="adicionarAnimal">
-            <p>Novo animal</p>
-
-            <form @submit.prevent="AdicionarAnimal">
-              <div class="form-group">
-                  <label for="NumeroCartao">Tipo Animal</label><br>
-                  <input class="form-control" id="radioDog" type="radio" v-model="NumeroCartao" required>
-                  <input class="form-control" id="radioDog" type="radio" v-model="NumeroCartao" required>
-              </div>
-              <div class="form-group">
-                  <label for="NumeroCartao">Nome</label><br>
-                  <input class="form-control" id="NumeroCartao" type="text" v-model="NumeroCartao" required>
-              </div>
-
-              <div class="form-group">
-                  <label for="NumeroPedido">Idade</label><br>
-                  <input class="form-control" id="NumeroPedido" type="text" v-model="NumeroPedido" required>
-              </div>
-
-              <div class="form-group">
-                  <label for="Valor">Raca</label><br>
-                  <input class="form-control" id="Valor" type="text" v-model="Valor" required>
-              </div>
-
-              <div class="form-group">
-                <label for="Valor">Raca</label><br>
-                <input class="form-control" id="Valor" type="text" v-model="Valor" required>
-              </div>
-
-              <button type="submit" class="btn btn-primary"  >Cadastrar Fatura</button>
-
+            <p>Novo Animal</p>
+            <form @submit.prevent="createAnimal">
+                <div class="form-group">
+                    <label for="NomeAnimal">Nome</label><br>
+                    <input class="form-control" id="NomeAnimal" type="text" v-model="NomeAnimal" required>
+                </div>
+                <div class="form-group">
+                    <label for="IdadeAnimal">Idade</label><br>
+                    <input class="form-control" id="IdadeAnimal" type="number" v-model="IdadeAnimal" required>
+                </div>
+                <div class="form-group">
+                    <label for="RacaAnimal">Raca</label><br>
+                    <input class="form-control" id="RacaAnimal" type="text" v-model="RacaAnimal" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Cadastrar Animal</button>
             </form>
-           
-        
-        
+        </template>
+
+        <template id="editarAnimal">
+            <p>Editar Animal</p>
+
+            <form @submit.prevent="EditAnimal">
+                <div class="form-group">
+                    <label for="NomeAnimal">Nome</label><br>
+                    <input class="form-control" id="NomeAnimal" type="text" v-model="faturaAlterar.NumeroCartao" required>
+                </div>
+                <div class="form-group">
+                    <label for="NumeroPedido">Idade</label><br>
+                    <input class="form-control" id="NumeroPedido" type="text" v-model="faturaAlterar.NumeroPedido" required>
+                </div>
+                <div class="form-group">
+                    <label for="Valor">Raca</label><br>
+                    <input class="form-control" id="Valor" type="text" v-model="faturaAlterar.Valor" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Alterar Animal</button>
+            </form>
+
+
         </template>
 
 
-    
+        <template id="excluirAnimal">
+            <p>Deseja Excluir?</p>
+            <form @submit.prevent="excluirFatura">
+                <button type="submit" class="btn btn-outline-danger">Excluir</button>
+            </form>
+        </template>
+
 
         <script>
             var animais = [];
-            var ListarAnimais = Vue.extend({
-                template: '#animaisLista',
+            var ListarAnimal = Vue.extend({
+                template: '#listaAnimal',
                 data: function(){
-                    axios.get('https://localhost:7236/dogs').then( res =>{
+                    axios.get('https://localhost:7236/animal', {
+                        animalType: 0
+                    }).then( res =>{
                         this.animais = (res.data)
-                        console.log(res.data)
-                });
+                    });
                     return{animais: animais, searchKey:''}
                 }
             });
 
-            var AdicionarAnimal= Vue.extend({
+            var AdicionarAnimal = Vue.extend({
                 template: "#adicionarAnimal",
                 data:function(){
                    return{
-                    NumeroCartao: '',
-                    NumeroPedido:'',
-                    Valor:''
-
+                    Name: '',
+                    Age:'',
+                    Race:''
                    }
-
                 },
                 methods:{
-                    criarFatura(){
-                        axios.post('https://localhost:44358/api/Pagamentos',{
-                            NumeroCartao: this.NumeroCartao,
-                            NumeroPedido: this.NumeroPedido,
-                            Valor: this.Valor   
-
-                        })
-
-                        router.go('/')
+                    criarAnimal(){
+                        axios.post('https://localhost:7236/animal',{
+                            name: this.Name,
+                            age: this.Age,
+                            race: this.Race   
+                        }).then(resp =>{
+                            router.go('/');
+                        });
                     }
-
                 }
-
 
             });
 
+            var editarAnimal = [];
+            var EditarAnimal = Vue.extend({
+                template:'#editarAnimal',
+                data: function(){
+                    axios.get('https://localhost:7236/animal/'+ this.$route.params.animalId).then(resp =>{
+                        this.editAnimal = (resp.data)
+                        
+                    });
+                return{
+                    editAnimal
+                }
+            },
+                methods:{
+                    EditarFatura(){
+                    axios.put('https://localhost:7236/animal',{
+                        Id: this.editAnimal.Id,
+                        Name: this.editAnimal.Name,
+                        Age: this.editAnimal.Age,
+                        Race: this.editAnimal.Race,
+                    }).then(resp =>{
+                        router.go('/');
+                    });
+                    }
+                }
+            });
+
+            var animal = [];
+            var excluirAnimal = Vue.extend({
+            template: '#excluirAnimal',
+            data: function(){
+                axios.get('https://localhost:7236/animal/' + this.$route.params.fatura_id).then(resp =>{
+                        this.animal = (resp.data)
+                    });
+                return{
+                    fatura
+                }
+            },
+            methods: {
+                excluirAnimal(){
+                    axios.delete('https://localhost:7236/animal/' + this.$route.params.fatura_id).then(resp =>{ 
+                       
+                    });
+                }
+            }
+        })
 
 
             var router = new VueRouter();
             router.map({
-                '/' :{component: ListarAnimais},
-                '/adicionarAnimal':{component: AdicionarAnimal}
-
+                '/' :{component: ListarAnimal},
+                '/adicinarAnimal':{component: AdicionarAnimal},
+                '/editarAnimal/:animalId/confirmacao': {component: EditarAnimal, name: 'editarAnimal'},
+                '/excluirAnimal/:animalId/confirmacao': {component: ExcluirAnimal, name: 'excluirAnimal'},
             })
             .start(Vue.extend({}),'#app')
         </script>
+
+
     </body>
+
 </html>
