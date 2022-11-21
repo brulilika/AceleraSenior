@@ -20,21 +20,15 @@ Programa de aprofundamento com a proposta de expor os desenvolvedores a experiê
 ## Progressão do Curso
 - [x] 08/11: Revisão básica html, css, cshtml. Requisições
 
-- [ ] 09/11: 
+- [x] 09/11: Frontend com Razor + Instanciar API .NET
 
-- [ ] 10/11: 
+- [x] 10/11: API .NET GetAll, GetById, Post, Put e Delete
 
-- [ ] 11/11: 
+- [x] 11/11: Frontend para GetAll, GetById, Post com Vue.js
 
-- [ ] 12/11: 
+- [x] 12/11: Frontend para Put, Delete com Vue.js
 
-- [ ] 14/11: 
-
-- [ ] 16/11: 
-
-- [ ] 17/11: 
-
-- [ ] 18/11: 
+- [x] 14/11: Revisão do último exercício, tira-dúvidas e settagem de ambientes.
 
 - [ ] 21/11: 
 
