@@ -30,7 +30,7 @@ Programa de aprofundamento com a proposta de expor os desenvolvedores a experiê
 
 - [x] 14/11: Revisão do último exercício, tira-dúvidas e settagem de ambientes.
 
-- [ ] 21/11: 
+- [x] 21/11: HTML, CSS, JS
 
 - [ ] 22/11: 
 
