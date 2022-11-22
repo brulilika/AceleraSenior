@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--
+        Ordem de importação importa !
+
+        Parametros:
+            integrity crossorigin = garantem que caso haja alguma alteração de codigo, o arquivo importado nao seja mais considerado
+            CDN é público! Pode apresentar um ponto de vunerabilidade
+    -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sono&display=swap" rel="stylesheet">
+    <link href="./styles/styles.css" rel="stylesheet"/>
+    <title>Cursos online</title>
+</head>
+<body>
+    <section class="backContent">
+    </section>
+
+    <div class="content">
+        <header class="navigation">
+            <h1>Cursos online - TESTE</h1>
+            <p>Uma legenda legal aqui</p>
+        </header>
+
+        <!--
+            ATALHOS LEGAIS PARA INSTANCIACAO em HTML Emmet/Snipet
+
+            ul>(li>a)*5
+            ul>li*5
+        -->
+        <ul>
+            <li>FrontEnd</li>
+            <li>Java Programmer</li>
+            <li>Mobile</li>
+            <li>Cloud</li>
+            <li>Business Intelligence</li>
+        </ul>
+
+        <h2>Cursos Presenciais</h2>
+        <p>Uma outra legenda legal</p>
+
+        <div class="formulario">
+            <h2>Faça sua inscrição!</h2>
+            <div class="mb-3">
+                <label class="form-label">Seu Nome:</label>
+                <input type="text" id="nome" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Seu Email:</label>
+                <input type="email" id="email" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Data de Nascimento:</label>
+                <input type="date" id="data" class="form-control" />
+            </div>
+            <button type="button" id="btnEnviar" class="btn btn-primary">Enviar</button>
+            <!-- 
+                <button type="button" id="buttonSend" class="btn btn-primary" onclick="">Enviar</button> 
+
+                Ao colocar o onclick dentro do html temos um codigo intrusivo, mesclando os objetivos e funcoes de cada tipo de 
+                "linguagem"
+            -->
+            
+            
+            <div id="response" class="alert alert-success" role="alert" style="display: none; margin-top: 10px;"></div>
+            <!--
+                O JS não altera o arquivo e sim a árvore de componentes, por conta disso, 
+                ao analisarmos o código fonte do response, não vemos as alterações realizadas pelo index.js
+                A alteração é realizada em tempo real. 
+                Somente vemos estas alterações em memória do navegador na aba de elements
+            -->
+        </div>
+    </div>
+
+    <footer class="footerContenent">
+        <div>
+            Copyright @AceleraSenior
+        </div>
+    </footer>
+
+    <script src="./js/index.js"></script>
+</body>
+</html>
+
+<!--
+    DOM - Document Object Model
+-->
