@@ -32,9 +32,9 @@ Programa de aprofundamento com a proposta de expor os desenvolvedores a experiê
 
 - [x] 21/11: HTML, CSS, JS
 
-- [ ] 22/11: 
+- [x] 22/11: Callbacks JS
 
-- [ ] 23/11: 
+- [x] 23/11: Promisses JS
 
 - [ ] 24/11: 
 
