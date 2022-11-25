@@ -36,7 +36,7 @@ Programa de aprofundamento com a proposta de expor os desenvolvedores a experiê
 
 - [x] 23/11: Promisses JS
 
-- [ ] 24/11: 
+- [x] 24/11: Fetch, Axios e JQuery
 
 - [ ] 25/11: 
 
