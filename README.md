@@ -38,19 +38,19 @@ Programa de aprofundamento com a proposta de expor os desenvolvedores a experiê
 
 - [x] 24/11: Fetch, Axios e JQuery
 
-- [ ] 25/11: 
+- [x] 25/11: SQL - Query
 
-- [ ] 28/11: 
+- [x] 28/11: SQL - Insert, Update, Delete
 
-- [ ] 29/11: 
+- [x] 29/11: SQL - PROC
+ 
+- [x] 30/11: SQL - Functions
 
-- [ ] 30/11: 
+- [x] 01/12: SQL - Views
 
-- [ ] 01/12: 
+- [x] 02/12: SQL - Triggers
 
-- [ ] 02/12: 
-
-- [ ] 05/12: 
+- [x] 05/12: POO em C# - classes, objetos
 
 - [ ] 06/12: 
 
