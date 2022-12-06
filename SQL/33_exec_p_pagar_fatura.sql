@@ -1,0 +1,6 @@
+USE DB_VENDAS
+GO
+
+SELECT * FROM TB_FATURAS
+
+EXEC p_pagar_fatura 4

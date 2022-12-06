@@ -1,0 +1,4 @@
+SELECT * FROM TB_ESTOQUE
+SELECT * FROM TB_ITENS
+
+EXEC p_remover_item 15

@@ -1,0 +1,10 @@
+USE DB_VENDAS
+GO
+
+SELECT * FROM TB_CARTOES
+SELECT * FROM TB_FATURAS
+SELECT * FROM TB_PEDIDOS
+
+EXEC p_criar_fatura 
+	@id_pedido=3, 
+	@numerocartao='1234567890123456'
